@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    tools:context=".ui.auth.register.RegisterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_hello"
+            style="@style/StoriHeadingTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/hello"
+            android:textColor="@color/secondary_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.andikas.storyapp.custom.StoriConstraintLayout
+            android:id="@+id/layout_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_view_group"
+            android:elevation="2dp"
+            android:paddingVertical="32dp"
+            android:translationZ="6dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hello">
+
+            <ImageView
+                android:id="@+id/img_stori"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/ic_logo_primary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/primary_blue"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/tv_register"
+                style="@style/StoriTitleTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/register"
+                android:textColor="@color/primary_blue"
+                app:layout_constraintBottom_toBottomOf="@id/img_stori"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_stori"
+                app:layout_constraintTop_toTopOf="@id/img_stori" />
+
+            <TextView
+                android:id="@+id/tv_register_name"
+                style="@style/StoriLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/name"
+                android:textColor="@color/secondary_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_stori" />
+
+            <com.andikas.storyapp.custom.StoriEditText
+                android:id="@+id/ed_register_name"
+                style="@style/StoriBaseEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="4dp"
+                android:hint="@string/name"
+                android:inputType="textCapWords"
+                android:maxLines="1"
+                app:layout_constraintTop_toBottomOf="@id/tv_register_name" />
+
+            <TextView
+                android:id="@+id/tv_register_name_error"
+                style="@style/StoriErrorLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ed_register_name" />
+
+            <TextView
+                android:id="@+id/tv_register_email"
+                style="@style/StoriLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/email"
+                android:textColor="@color/secondary_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_register_name_error" />
+
+            <com.andikas.storyapp.custom.StoriEditText
+                android:id="@+id/ed_register_email"
+                style="@style/StoriBaseEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="4dp"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                app:layout_constraintTop_toBottomOf="@id/tv_register_email" />
+
+            <TextView
+                android:id="@+id/tv_register_email_error"
+                style="@style/StoriErrorLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ed_register_email" />
+
+            <TextView
+                android:id="@+id/tv_register_password"
+                style="@style/StoriLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/password"
+                android:textColor="@color/secondary_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_register_email_error" />
+
+            <com.andikas.storyapp.custom.StoriEditText
+                android:id="@+id/ed_register_password"
+                style="@style/StoriBaseEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="4dp"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                app:layout_constraintTop_toBottomOf="@id/tv_register_password" />
+
+            <TextView
+                android:id="@+id/tv_register_password_error"
+                style="@style/StoriErrorLabelTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ed_register_password" />
+
+            <com.andikas.storyapp.custom.StoriButton
+                android:id="@+id/btn_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="48dp"
+                android:elevation="2dp"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingVertical="16dp"
+                android:text="@string/register"
+                android:textSize="14sp"
+                android:translationZ="12dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_register_password_error" />
+
+            <View
+                android:id="@+id/viewDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/neutral_blue"
+                app:layout_constraintTop_toBottomOf="@id/btn_register" />
+
+            <TextView
+                android:id="@+id/tvOr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/poppins_medium"
+                android:paddingHorizontal="8dp"
+                android:text="@string/or"
+                android:textColor="@color/secondary_blue"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/viewDivider"
+                app:layout_constraintEnd_toEndOf="@id/viewDivider"
+                app:layout_constraintStart_toStartOf="@id/viewDivider"
+                app:layout_constraintTop_toTopOf="@id/viewDivider" />
+
+            <com.andikas.storyapp.custom.StoriButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="12dp"
+                android:alpha="0"
+                android:backgroundTint="@color/primary_green"
+                android:elevation="30dp"
+                android:fontFamily="@font/poppins_bold"
+                android:paddingVertical="16dp"
+                android:text="@string/login"
+                android:textSize="14sp"
+                android:translationZ="12dp"
+                app:layout_constraintTop_toBottomOf="@id/viewDivider" />
+
+        </com.andikas.storyapp.custom.StoriConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

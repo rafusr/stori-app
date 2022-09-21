@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="StoriHeadingTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="StoriTitleTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_semi_bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="StoriLabelTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="StoriErrorLabelTextView" parent="Widget.AppCompat.TextView">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/primary_error</item>
+    </style>
+
+    <style name="StoriBaseEditText" parent="Widget.AppCompat.EditText">
+        <item name="colorPrimary">@color/primary_key</item>
+        <item name="colorAccent">@color/primary_key</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:translationZ">8dp</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+</resources>

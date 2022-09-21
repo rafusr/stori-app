@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_background"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    tools:context=".ui.story.detail.StoryDetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="48dp">
+
+        <TextView
+            android:id="@+id/tv_detail_name"
+            style="@style/StoriTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_view_group"
+            android:drawablePadding="18dp"
+            android:includeFontPadding="false"
+            android:padding="18dp"
+            android:textColor="@color/primary_blue"
+            android:transitionName="detail_name"
+            app:drawableStartCompat="@drawable/ic_back"
+            app:drawableTint="@color/secondary_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_detail_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:transitionName="detail_photo"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_name"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent" />
+
+        <TextView
+            android:id="@+id/tv_detail_description"
+            style="@style/StoriLabelTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/neutral_key"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_detail_photo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

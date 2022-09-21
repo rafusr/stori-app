@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Stori</string>
+    <string name="hello">Halo, \nSelamat Datang!</string>
+    <string name="welcome_back">Selamat Datang Kembali!</string>
+    <string name="login">Masuk</string>
+    <string name="register">Buat Akun</string>
+    <string name="name">Nama</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="description">Deskripsi</string>
+    <string name="or">Atau</string>
+
+    <string name="error_name_empty">Nama tidak boleh kosong.</string>
+    <string name="error_name_wrong_format">Format nama salah.</string>
+    <string name="error_email_empty">Email tidak boleh kosong.</string>
+    <string name="error_email_wrong_format">Format email salah.</string>
+    <string name="error_password_empty">Password tidak boleh kosong.</string>
+    <string name="error_password_wrong_typing_format">Password harus mengandung kombinasi huruf dan angka.</string>
+    <string name="error_password_wrong_length_format">Panjang password minimal 6 karakter.</string>
+    <string name="error_image_empty">Gambar tidak boleh kosong.</string>
+    <string name="error_description_empty">Deskripsi tidak boleh kosong.</string>
+    <string name="error_permission">Stori memerlukan izin anda.</string>
+
+    <string name="list_empty">Oops!\nSepertinya Stori sedang kosong saat ini, maukah anda membuat beberapa?</string>
+    <string name="greetings_placeholder">Halo %1$s!</string>
+    <string name="create_new_story">Buat cerita baru</string>
+    <string name="add_image">Tambahkan Gambar</string>
+</resources>

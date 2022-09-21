@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_blue"
+    app:layoutDescription="@xml/activity_splash_scene"
+    tools:context=".ui.splash.SplashActivity">
+
+    <ImageView
+        android:id="@+id/imgIconOne"
+        android:layout_width="24dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_separated_logo2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgIconTwo"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/primary_background"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgIconTwo"
+        android:layout_width="24dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="12dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_separated_logo2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgIconThree"
+        app:layout_constraintStart_toEndOf="@id/imgIconOne"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/primary_background"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgIconThree"
+        android:layout_width="24dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="12dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_separated_logo2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imgIconFour"
+        app:layout_constraintStart_toEndOf="@id/imgIconTwo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/primary_background"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgIconFour"
+        android:layout_width="24dp"
+        android:layout_height="128dp"
+        android:layout_marginBottom="12dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_separated_logo2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgIconThree"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/primary_background"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

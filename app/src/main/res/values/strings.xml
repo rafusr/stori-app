@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Stori</string>
+    <string name="hello">Hello, \nWelcome!</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="description">Description</string>
+    <string name="or">Or</string>
+
+    <string name="error_name_empty">Name cannot be empty.</string>
+    <string name="error_name_wrong_format">Incorrect name format.</string>
+    <string name="error_email_empty">Email cannot be empty.</string>
+    <string name="error_email_wrong_format">Incorrect email format.</string>
+    <string name="error_password_empty">Password cannot be empty.</string>
+    <string name="error_password_wrong_typing_format">Password must contain combination of letters and numbers.</string>
+    <string name="error_password_wrong_length_format">Minimum password length is 6 characters.</string>
+    <string name="error_image_empty">Image cannot be empty.</string>
+    <string name="error_description_empty">Description cannot be empty.</string>
+    <string name="error_permission">Stori need your permission.</string>
+
+    <string name="list_empty">Oops!\nLooks like Stori is empty at the moment, would you mind making some?</string>
+    <string name="greetings_placeholder">Hello %1$s!</string>
+    <string name="create_new_story">Create new story</string>
+    <string name="add_image">Add Image</string>
+</resources>
