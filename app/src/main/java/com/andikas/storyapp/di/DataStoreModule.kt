@@ -16,8 +16,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import javax.inject.Singleton
 
-private const val USER_PREFERENCES = "user_preferences"
-private const val USER_PREFERENCES_NAME = "user_preferences"
 private const val DATA_STORE_FILE_NAME = "user_prefs.pb"
 
 @Module

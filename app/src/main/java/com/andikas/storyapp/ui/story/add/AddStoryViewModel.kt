@@ -15,10 +15,13 @@ class AddStoryViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     suspend fun addNewStory(
-        file: MultipartBody.Part,
-        description: RequestBody
+        file: MultipartBody.Part?,
+        description: RequestBody?,
+        lat: RequestBody? = null,
+        lon: RequestBody? = null,
+        onError: ((message: String?) -> Unit)? = { errorMessage.postValue(it) }
     ) {
-        storyRepository.addStory(file, description) { errorMessage.postValue(it) }
+        storyRepository.addStory(file, description, lat, lon, onError)
             .onStart { isLoading.postValue(true) }
             .onCompletion { isLoading.postValue(false) }
             .collect { responseAction.postValue(it) }

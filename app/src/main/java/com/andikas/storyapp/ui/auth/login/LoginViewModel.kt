@@ -17,10 +17,11 @@ class LoginViewModel @Inject constructor(
 
     suspend fun userLogin(
         email: String,
-        password: String
+        password: String,
+        onError: ((message: String?) -> Unit)? = { errorMessage.postValue(it) }
     ) {
         val authBody = AuthBody(email = email, password = password)
-        authRepository.userLogin(authBody) { errorMessage.postValue(it) }
+        authRepository.userLogin(authBody, onError)
             .onStart { isLoading.postValue(true) }
             .onCompletion { isLoading.postValue(false) }
             .collect {

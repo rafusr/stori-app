@@ -16,10 +16,11 @@ class RegisterViewModel @Inject constructor(
     suspend fun userRegister(
         name: String,
         email: String,
-        password: String
+        password: String,
+        onError: ((message: String?) -> Unit)? = { errorMessage.postValue(it) }
     ) {
         val authBody = AuthBody(name = name, email = email, password = password)
-        authRepository.userRegister(authBody) { errorMessage.postValue(it) }
+        authRepository.userRegister(authBody, onError)
             .onStart { isLoading.postValue(true) }
             .onCompletion { isLoading.postValue(false) }
             .collect { responseAction.postValue(it) }

@@ -3,6 +3,7 @@ package com.andikas.storyapp.data.source.remote.client
 import com.andikas.storyapp.data.repository.UserPreferencesRepository
 import com.skydoves.sandwich.adapters.ApiResponseCallAdapterFactory
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -29,11 +30,13 @@ class ApiClient @Inject constructor(
 
 }
 
-fun okHttpClient(userPreferencesRepository: UserPreferencesRepository): OkHttpClient =
+fun okHttpClient(
+    userPreferencesRepository: UserPreferencesRepository
+): OkHttpClient =
     OkHttpClient.Builder()
         .addNetworkInterceptor(Interceptor { chain: Interceptor.Chain ->
             val token = runBlocking {
-                userPreferencesRepository.getUserToken().first()
+                userPreferencesRepository.userPreferencesFlow.map { it.token }.first()
             }
             val request = chain.request().newBuilder()
                 .addHeader("Authorization", "Bearer $token")

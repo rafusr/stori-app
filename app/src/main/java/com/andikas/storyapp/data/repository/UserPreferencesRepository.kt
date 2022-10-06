@@ -5,7 +5,6 @@ import androidx.datastore.core.DataStore
 import com.andikas.storyapp.UserPreferences
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.map
 import java.io.IOException
 import javax.inject.Inject
 
@@ -24,10 +23,6 @@ class UserPreferencesRepository @Inject constructor(
                 throw exception
             }
         }
-
-    fun getUserId() = dataStore.data.map { it.userId }
-    fun getUserName() = dataStore.data.map { it.name }
-    fun getUserToken() = dataStore.data.map { it.token }
 
     suspend fun updateUserId(userId: String?) {
         dataStore.updateData { preferences ->

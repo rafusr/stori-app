@@ -7,6 +7,7 @@ import com.andikas.storyapp.UserPreferences
 import java.io.InputStream
 import java.io.OutputStream
 
+@Suppress("BlockingMethodInNonBlockingContext")
 object UserPreferencesSerializer : Serializer<UserPreferences> {
     override val defaultValue: UserPreferences = UserPreferences.getDefaultInstance()
     override suspend fun readFrom(input: InputStream): UserPreferences {

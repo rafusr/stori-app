@@ -3,16 +3,17 @@ package com.andikas.storyapp.ui.story.home
 import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.andikas.storyapp.R
 import com.andikas.storyapp.base.BaseActivity
-import com.andikas.storyapp.data.source.remote.response.story.StoryResponse
 import com.andikas.storyapp.databinding.ActivityHomeBinding
 import com.andikas.storyapp.ui.auth.login.LoginActivity
 import com.andikas.storyapp.ui.story.add.AddStoryActivity
 import com.andikas.storyapp.ui.story.detail.StoryDetailActivity
+import com.andikas.storyapp.ui.story.maps.StoryMapsActivity
 import com.andikas.storyapp.utils.Extension.drawable
 import com.andikas.storyapp.utils.Extension.navigateTo
 import com.andikas.storyapp.utils.Extension.string
@@ -32,16 +33,18 @@ class HomeActivity : BaseActivity() {
     }
     private val viewModel: HomeViewModel by viewModels()
 
+    private val launcherIntent = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { getData() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         observeLoadingNError(viewModel)
-        lifecycleScope.launch {
-            viewModel.getUserName()
-            viewModel.getStories()
-        }
+        lifecycleScope.launch { viewModel.getUserName() }
         initClickListener()
+        getData()
     }
 
     override fun observeViewModel() {
@@ -52,21 +55,12 @@ class HomeActivity : BaseActivity() {
         viewModel.userName.observe(this) {
             binding.tvUserName.text = String.format(string(R.string.greetings_placeholder), it)
         }
-        viewModel.stories.observe(this) {
-            if (it.isEmpty()) {
-                binding.layoutEmpty.visible(true)
-                binding.rvStory.visible(false)
-            } else {
-                binding.layoutEmpty.visible(false)
-                binding.rvStory.visible(true)
-                initRecycler(it)
-            }
-        }
     }
 
     private fun initClickListener() {
         binding.apply {
-            btnAddStory.setOnClickListener { navigateTo<AddStoryActivity>() }
+            btnMapStory.setOnClickListener { launcherIntent.navigateTo<StoryMapsActivity>(this@HomeActivity) }
+            btnAddStory.setOnClickListener { launcherIntent.navigateTo<AddStoryActivity>(this@HomeActivity) }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 svMain.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
                     btnAddStory.apply {
@@ -80,7 +74,11 @@ class HomeActivity : BaseActivity() {
                             }
                             scrollY == 0 -> {
                                 icon = drawable(R.drawable.ic_add)
-                                setOnClickListener { navigateTo<AddStoryActivity>() }
+                                setOnClickListener {
+                                    launcherIntent.navigateTo<AddStoryActivity>(
+                                        this@HomeActivity
+                                    )
+                                }
                             }
                         }
                     }
@@ -100,19 +98,27 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    private fun initRecycler(stories: List<StoryResponse>) {
+    private fun getData() {
+        val homeAdapter = HomeAdapter { story, bundle ->
+            navigateTo<StoryDetailActivity>({
+                putExtra(EXTRA_STORY, story)
+            }, bundle)
+        }
         binding.rvStory.apply {
             layoutManager = LinearLayoutManager(this@HomeActivity)
-            adapter = HomeAdapter(stories) { story, bundle ->
-                navigateTo<StoryDetailActivity>({
-                    putExtra(EXTRA_STORY, story)
-                }, bundle)
+            adapter = homeAdapter.withLoadStateFooter(
+                footer = LoadingStateAdapter { homeAdapter.retry() }
+            )
+        }
+        viewModel.pagingStories().observe(this) {
+            homeAdapter.submitData(lifecycle, it)
+            if (homeAdapter.snapshot().items.isEmpty()) {
+                binding.layoutEmpty.visible(true)
+                binding.rvStory.visible(false)
+            } else {
+                binding.layoutEmpty.visible(false)
+                binding.rvStory.visible(true)
             }
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        lifecycleScope.launch { viewModel.getStories() }
     }
 }

@@ -9,7 +9,10 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="description">Deskripsi</string>
+    <string name="location">Lokasi</string>
+    <string name="update_location">Perbarui Lokasi</string>
     <string name="or">Atau</string>
+    <string name="stori_maps">Stori Maps</string>
 
     <string name="error_name_empty">Nama tidak boleh kosong.</string>
     <string name="error_name_wrong_format">Format nama salah.</string>
@@ -21,9 +24,17 @@
     <string name="error_image_empty">Gambar tidak boleh kosong.</string>
     <string name="error_description_empty">Deskripsi tidak boleh kosong.</string>
     <string name="error_permission">Stori memerlukan izin anda.</string>
+    <string name="error_location_not_found">Lokasi tidak ditemukan. Silahkan coba lagi</string>
+    <string name="error_location_permission">Anda harus mengaktifkan GPS untuk menambahkan lokasi</string>
 
     <string name="list_empty">Oops!\nSepertinya Stori sedang kosong saat ini, maukah anda membuat beberapa?</string>
     <string name="greetings_placeholder">Halo %1$s!</string>
     <string name="create_new_story">Buat cerita baru</string>
     <string name="add_image">Tambahkan Gambar</string>
+
+    <string name="title_activity_stori_maps">StoriMapsActivity</string>
+    <string name="last_location">Lokasi terakhir</string>
+    <string name="retry">Coba Lagi</string>
+    <string name="invalid_location">Lokasi tidak valid</string>
+
 </resources>

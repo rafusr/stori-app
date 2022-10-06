@@ -8,7 +8,10 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="description">Description</string>
+    <string name="location">Location</string>
+    <string name="update_location">Update Location</string>
     <string name="or">Or</string>
+    <string name="stori_maps">Stori Maps</string>
 
     <string name="error_name_empty">Name cannot be empty.</string>
     <string name="error_name_wrong_format">Incorrect name format.</string>
@@ -20,9 +23,17 @@
     <string name="error_image_empty">Image cannot be empty.</string>
     <string name="error_description_empty">Description cannot be empty.</string>
     <string name="error_permission">Stori need your permission.</string>
+    <string name="error_location_not_found">Location is not found. Try Again</string>
+    <string name="error_location_permission">You must enable GPS to add location</string>
 
     <string name="list_empty">Oops!\nLooks like Stori is empty at the moment, would you mind making some?</string>
     <string name="greetings_placeholder">Hello %1$s!</string>
     <string name="create_new_story">Create new story</string>
     <string name="add_image">Add Image</string>
+
+    <string name="title_activity_stori_maps">StoriMapsActivity</string>
+    <string name="last_location">Last location</string>
+    <string name="retry">Retry</string>
+    <string name="invalid_location">Invalid location</string>
+
 </resources>
